@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NSG Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'top-lg': '0 -10px 15px -3px rgb(0 0 0 / 0.1), 0 -4px 6px -4px rgb(0 0 0 / 0.1)',
+            'glow-indigo': '0 0 15px 5px rgba(99, 102, 241, 0.6), 0 0 25px 10px rgba(99, 102, 241, 0.4)', 
+            'glow-purple': '0 0 15px 5px rgba(168, 85, 247, 0.6), 0 0 25px 10px rgba(168, 85, 247, 0.4)',
+          },
+          keyframes: {
+            animatedGradient: {
+              '0%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' },
+              '100%': { backgroundPosition: '0% 50%' },
+            },
+            fadeInPage: {
+              'from': { opacity: '0', transform: 'translateY(10px)' },
+              'to': { opacity: '1', transform: 'translateY(0)' },
+            },
+            heartbeat: { 
+              '0%, 100%': { transform: 'scale(1)' },
+              '50%': { transform: 'scale(1.07)' },
+            },
+            subtleGlow: { 
+              '0%, 100%': { boxShadow: '0 0 12px 2px rgba(129, 140, 248, 0.5), 0 0 20px 5px rgba(167, 139, 250, 0.3)' }, 
+              '50%': { boxShadow: '0 0 18px 4px rgba(129, 140, 248, 0.7), 0 0 30px 8px rgba(167, 139, 250, 0.5)' }
+            },
+            'blob-circle-1': {
+              '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+              '25%': { transform: 'translate(20px, -30px) scale(1.1)' },
+              '50%': { transform: 'translate(-10px, 15px) scale(0.9)' },
+              '75%': { transform: 'translate(15px, 5px) scale(1.05)' },
+            },
+            'blob-circle-2': {
+              '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+              '25%': { transform: 'translate(-25px, 20px) scale(0.95)' },
+              '50%': { transform: 'translate(10px, -10px) scale(1.15)' },
+              '75%': { transform: 'translate(-5px, -15px) scale(1)' },
+            },
+            'blob-circle-3': {
+              '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+              '25%': { transform: 'translate(10px, 25px) scale(1.05)' },
+              '50%': { transform: 'translate(-20px, -20px) scale(1)' },
+              '75%': { transform: 'translate(5px, -10px) scale(0.9)' },
+            },
+             'blob-circle-4': { 
+              '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+              '33%': { transform: 'translate(-15px, 10px) scale(1.1)' },
+              '66%': { transform: 'translate(10px, -15px) scale(0.95)' },
+            },
+            'modal-fade-in': {
+              'from': { opacity: '0' },
+              'to': { opacity: '1' },
+            },
+            'modal-fade-out': {
+              'from': { opacity: '1' },
+              'to': { opacity: '0' },
+            },
+            'modal-scale-up': {
+              'from': { opacity: '0', transform: 'scale(0.95) translateY(10px)' },
+              'to': { opacity: '1', transform: 'scale(1) translateY(0)' },
+            },
+            'modal-scale-down': {
+              'from': { opacity: '1', transform: 'scale(1) translateY(0)' },
+              'to': { opacity: '0', transform: 'scale(0.95) translateY(10px)' },
+            },
+          },
+          animation: {
+            animatedGradient: 'animatedGradient 15s ease infinite',
+            fadeInPage: 'fadeInPage 0.5s ease-out forwards',
+            heartbeat: 'heartbeat 1.5s ease-in-out infinite',
+            subtleGlow: 'subtleGlow 3s ease-in-out infinite alternate',
+            'blob-circle-1-anim': 'blob-circle-1 10s infinite ease-in-out',
+            'blob-circle-2-anim': 'blob-circle-2 12s infinite ease-in-out 0.5s',
+            'blob-circle-3-anim': 'blob-circle-3 11s infinite ease-in-out 1s',
+            'blob-circle-4-anim': 'blob-circle-4 9s infinite ease-in-out 0.2s',
+            'modal-overlay-in': 'modal-fade-in 0.2s ease-out forwards',
+            'modal-overlay-out': 'modal-fade-out 0.2s ease-in forwards',
+            'modal-content-in': 'modal-scale-up 0.3s ease-out forwards',
+            'modal-content-out': 'modal-scale-down 0.2s ease-in forwards',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Base body styles are now applied directly via Tailwind classes on the body tag */
+    .page-content-wrapper {
+      animation: fadeInPage 0.5s ease-out forwards;
+    }
+    
+    @media print {
+      html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background-color: #ffffff !important;
+        background-image: none !important; 
+        color: #000000 !important;
+        -webkit-print-color-adjust: exact !important; /* Attempt to force color printing for elements */
+        print-color-adjust: exact !important;
+      }
+      body * { /* Initially hide all */
+        visibility: hidden !important;
+      }
+      
+      #pdf-content-for-screen-display-only, #pdf-content-for-screen-display-only * { 
+        visibility: visible !important;
+        background-color: #ffffff !important; 
+        color: #000000 !important; 
+        box-shadow: none !important;
+        text-shadow: none !important;
+        border-color: #cccccc !important;
+      }
+
+      #pdf-content-for-screen-display-only {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 20pt !important; /* Standard print margin */
+        border: none !important;
+        font-size: 10pt !important;
+        border-radius: 0 !important;
+      }
+      
+      #pdf-content-for-screen-display-only h1, 
+      #pdf-content-for-screen-display-only h2, 
+      #pdf-content-for-screen-display-only h3, 
+      #pdf-content-for-screen-display-only h4, 
+      #pdf-content-for-screen-display-only h5, 
+      #pdf-content-for-screen-display-only h6,
+      #pdf-content-for-screen-display-only p, 
+      #pdf-content-for-screen-display-only span, 
+      #pdf-content-for-screen-display-only li, 
+      #pdf-content-for-screen-display-only div, 
+      #pdf-content-for-screen-display-only ul, 
+      #pdf-content-for-screen-display-only ol,
+      #pdf-content-for-screen-display-only strong, 
+      #pdf-content-for-screen-display-only em, 
+      #pdf-content-for-screen-display-only b, 
+      #pdf-content-for-screen-display-only i {
+        color: #000000 !important;
+        background-color: transparent !important; 
+        text-shadow: none !important;
+      }
+
+      #pdf-content-for-screen-display-only .bg-gradient-to-r, 
+      #pdf-content-for-screen-display-only .bg-gradient-to-br,
+      #pdf-content-for-screen-display-only .text-transparent,
+      #pdf-content-for-screen-display-only .bg-clip-text {
+        background-image: none !important;
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
+        color: #000000 !important; 
+      }
+      
+      #pdf-content-for-screen-display-only section, 
+      #pdf-content-for-screen-display-only .phase-display-wrapper, 
+      #pdf-content-for-screen-display-only .week-display-wrapper {
+         page-break-inside: avoid !important;
+      }
+       #pdf-content-for-screen-display-only .timetable-section > div { /* Target direct children of timetable section for page break avoid */
+        page-break-inside: avoid !important;
+      }
+      #pdf-content-for-screen-display-only h2, 
+      #pdf-content-for-screen-display-only h3, 
+      #pdf-content-for-screen-display-only h4 {
+        page-break-after: avoid !important;
+      }
+       #pdf-content-for-screen-display-only .prose p, 
+       #pdf-content-for-screen-display-only ul, 
+       #pdf-content-for-screen-display-only ol {
+        page-break-inside: auto !important; /* Allow breaks within long paragraphs/lists */
+      }
+
+      .no-print, .no-print * { /* Hide elements marked with .no-print */
+        display: none !important;
+        visibility: hidden !important;
+      }
+    }
+  </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="antialiased font-sans bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+  <div id="root"></div>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.1.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.1.0/client",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "@/": "/",
+    "jspdf": "https://esm.sh/jspdf@2.5.1",
+    "html2canvas": "https://esm.sh/html2canvas@1.4.1",
+    "@tailwindcss/typography": "https://esm.sh/@tailwindcss/typography@0.5.13",
+    "@tailwindcss/forms": "https://esm.sh/@tailwindcss/forms@0.5.7",
+    "path": "https://esm.sh/path@^0.12.7",
+    "url": "https://esm.sh/url@^0.11.4",
+    "vite": "https://esm.sh/vite@^7.0.0"
+  }
+}
+</script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
