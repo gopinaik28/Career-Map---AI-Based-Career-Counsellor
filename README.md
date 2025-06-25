@@ -51,7 +51,7 @@ Follow these instructions to set up and run the AI Career Counselor locally.
 4.  **Llama 3 Model:**
     *   Pull the Llama 3 model using Ollama. The application is configured to use `llama3:8b` by default.
         ```bash
-        ollama pull llama3:8b
+        ollama pull llama3.2b
         ```
     *   You can verify the model is available by running `ollama list`.
 
